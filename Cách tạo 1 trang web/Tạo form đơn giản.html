@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo form đơn giản</title>
+</head>
+
+<body>
+    <form method="post" action="Tạo form đơn giản.html">
+        <fieldset>
+            <legend>
+                <h1>SỞ THÍCH CỦA BẠN</h1>
+            </legend>
+            <label>Họ và tên <input type='text' name='yourname'></label> <br> <br>
+            <label>Email <input type='email' name='email'></label> <br> <br> Sở thích
+            <input type='checkbox' name='hobby' value='Thể thao'> Thể thao
+            <input type='checkbox' name='hobby' value='Âm nhạc'> Âm nhạc
+            <input type='checkbox' name='hobby' value='Đọc sách'> Đọc sách
+            <input type='checkbox' name='hobby' value='Lướt web'> Lướt web
+            <input type='checkbox' name='hobby' value='Chơi game'> Chơi game
+            <input type='checkbox' name='hobby' value='Điện ảnh'> Điện ảnh
+            <input type='checkbox' name='hobby' value='Du lịch'> Du lịch <br><br>
+            <input type='button' name='submit' value='Gửi thông tin'>
+            <input type='button' name='reset' value='Nhập lại'>
+        </fieldset>
+    </form>
+    <br> <br>
+    <form method='post' action='Tạo form đơn giản.html'>
+        <fieldset>
+            <legend>
+                <h1>ĐĂNG KÝ HỌC VIÊN</h1>
+            </legend>
+            <label>Họ và tên <input type='text' name='yourname'></label> <br> <br>
+            <label> Ngày sinh<input type='datetime' name='yourbirthday'></label><br><br> Giới tính<input type='radio' name='gender' value='male'> Nam
+            <input type='radio' name='gender' value='male'> Nữ <br><br>Lớp <select name='grade'>
+                <option value='grade'>-Chọn lớp-</option>
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+                <option value='8'>8</option>
+                <option value='9'>9</option>
+                <option value='10'>10</option>
+                <option value='11'>11</option>
+                <option value='12'>12</option>
+
+            </select><br><br>
+            <label>Email <input type='email' name='email'></label> <br> <br>
+            <label>Điện thoại <input type="number" name='yourphonenumber'></label> <br> <br>
+            <input type='button' name='submit' value='Đăng ký'>
+            <input type='button' name='reset' value='Nhập lại'>
+        </fieldset>
+    </form>
+</body>
+
+</html>
