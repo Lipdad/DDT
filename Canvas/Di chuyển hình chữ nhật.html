@@ -9,8 +9,42 @@
 </head>
 
 <body>
-    <canvas id="game" width="800" height="600" style="border: 3px solid #000000"></canvas>
+    <canvas id="game" width="800" height="600" style="border: 3px solid #000000"> </canvas>
     <script>
+        let gameContext = document.getElementById("game").getContext("2d");
+        gameContext.beginPath();
+        gameContext.fillStyle = '#fa4b2a';
+        gameContext.fillRect(20, 20, 150, 100);
+
+        let carYPosition = 20;
+
+        function moveCarUp() {
+            gameContext.clearRect(20, carYPosition, 150, 100);
+            carYPosition--;
+            gameContext.beginPath();
+            gameContext.fillStyle = '#fa4b2a';
+            gameContext.fillRect(20, carYPosition, 150, 100);
+        }
+
+        setInterval(moveCarUp, 10); // 10ms
+        if (carYPosition > 0) {
+            carYPosition--;
+        }
+
+        function moveCarDown() {
+
+            // Xoá hình chữ nhật đã vẽ trước đó
+            gameContext.clearRect(20, carYPosition, 150, 100);
+
+            if (carYPosition < 600) {
+                carYPosition++;
+            }
+
+            gameContext.beginPath();
+            gameContext.fillStyle = '#fa4b2a';
+            gameContext.fillRect(20, carYPosition, 150, 100);
+
+        }
     </script>
 </body>
 
