@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing ball game</title>
+</head>
+
+<body>
+    <style>
+        canvas {
+            background-color: white;
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            border: 1px solid
+        }
+    </style>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector("canvas");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        var l = canvas.getContext('2d');
+
+
+
+
+
+        var x = Math.floor(Math.random() * innerWidth);
+        var y = Math.floor(Math.random() * innerHeight);
+        // x và y là tọa độ ngẫu nhiên của quả bóng
+
+        var vx = Math.floor(Math.random() * 2);
+        var vy = Math.floor(Math.random() * 4);
+        // vx và vy là vận tốc ngẫu nhiên tương ứng của quả bóng
+
+        var radius = 20;
+
+        move();
+
+
+        function move() {
+            requestAnimationFrame(move);
+
+
+            l.clearRect(0, 0, innerWidth, innerHeight);
+
+
+            l.beginPath();
+            l.strokeStyle = "black";
+            l.arc(x, y, radius, 0, Math.PI * 2, false);
+            l.stroke();
+
+
+
+            if (radius + x > innerWidth)
+                vx = 0 - vx;
+
+            if (x - radius < 0)
+                vx = 0 - vx;
+
+            if (y + radius > innerHeight)
+                vy = 0 - vy;
+
+            if (y - radius < 0)
+                vy = 0 - vy;
+
+            x = x + vx;
+            y = y + vy;
+
+        }
+    </script>
+</body>
+
+</html>
