@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Edit_DS.js">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Add New Product</h2>
+    <input type="text" name="" id="add_product">
+    <button style="background-color: green;" onclick="addProduct()">Add</button>
+    <h2>Display All Product</h2>
+    <p></p>
+    <table>
+        <thead>
+            <td>No</td>
+            <td>Product Name</td>
+            <td></td>
+            <td></td>
+            <td id="productTotal"></td>
+        </thead>
+        <tbody id="body_table"></tbody>
+    </table>
+    <script>
+        let inputProduc = document.getElementById("add_product");
+        let countProduc = 0;
+        let dataTable = document.querySelector("#body_table");
+        function demoAdd() {
+            addRows("Sony Xperia");
+            addRows("Samsung Galaxy");
+            addRows("Nokia 6");
+        }
+        demoAdd();
+        function addProduct() {
+            newProduct = inputProduc.value;
+            inputProduc.value = "";
+            addRows(newProduct);
+        }
+        function addRows(name) {
+            countProduc++;
+            id = countProduc;
+            let e = document.createElement("tr");
+            e.id = "order" + id;
+            e.innerHTML = `
+            <td>${id}</id>
+            <td id="name${id}">${name}</id>
+            <td><button onclick="modifiedProduct(${id})" id="editBtn${id}">Edit</button></td>
+            <td><button onclick="delProduct(${id})">Delete</button></td>
+          `;
+            dataTable.appendChild(e);
+            renderNo();
+        }
+        
+        function modifiedProduct(order) {
+            let editBtn = document.getElementById("editBtn" + order);
+            let findNameId = document.getElementById("name" + order);
+            let oldName = findNameId.innerHTML.trim();
+            if (editBtn.innerText == "Edit") {
+                findNameId.innerHTML = `<input id="modified${order}" value="${oldName}"/>`;
+                editBtn.innerText = "Save";
+            } else {
+                let newName = document.getElementById("modified" + order).value;
+                findNameId.innerHTML = newName;
+                editBtn.innerText = "Edit";
+            }
+        }
+        function delProduct(order){
+            let findRowsItem = document.getElementById("order" + order);
+            findRowsItem.remove();
+            renderNo();
+        }
+        function renderNo() {
+            for (let i = 1; i <= dataTable.rows.length; i++) {
+                dataTable.rows[i - 1].cells[0].innerHTML = i;
+            }
+            document.getElementById('productTotal').innerText = dataTable.rows.length + " Products";
+        }
+
+    </script>
+</body>
+
+</html>

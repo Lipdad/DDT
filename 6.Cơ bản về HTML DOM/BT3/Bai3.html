@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb td{
+            width: 19px;
+            height: 19px;
+            text-align: center;
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" >
+        <fieldset style="width: 200px; height: 200px;" >
+            <div style="border: 1px solid black; width: 190px; height: 190px; background-color: white;">
+                <img id="tank" src="tank.png" alt="tanks"
+                style="position: relative; top: 0px; left: 0px;"
+                width="19px" height="19px">
+            </div>0
+        </fieldset>
+    </form>
+    <table class="tb">
+        <tr style="size: 19px;">
+            <td></td>
+            <td><button id="bt_top" onclick="up()">&uarr;</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button id="bt_left" onclick="left()" style="padding: 1px; width: 21px;">&larr;</button></td>
+            <td></td>
+            <td><button id="bt_right" onclick="right()" style="padding: 1px; width: 21px;">&rarr;</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="bt_bot" onclick="down()">&darr;</button></td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        let x = 0;
+        let y = 190;
+        function up(){
+            if(y>=19){
+                let y_u = y-19;
+                document.getElementById("tank").style["top"] = y_u + "px";
+                y = y-19;
+            }
+            else{
+                y = 190;
+            }
+        }
+        function down(){
+            if(y<=152){
+                let y_d = y+19;
+                document.getElementById("tank").style["top"] = y_d + "px";
+                y = y+19;
+            }
+            else{
+                y = -19;
+            }
+            
+        }
+        function left(){
+            if (x>=19){
+                let x_l = x-19;
+                document.getElementById("tank").style["left"]= x_l+"px";
+                x = x-19;
+            }
+            else{
+                x = 190;
+            }
+        }
+        function right(){
+            if (x<=152)
+            {
+                let x_r = x +19;
+                //document.getElementById("tank").style["top"] = 0 + "px";
+                document.getElementById("tank").style["left"]= x_r + "px";
+                x= x+19;
+            }
+            else
+            {
+                x=-19;
+            }
+        }
+    </script>
+</body>
+</html>

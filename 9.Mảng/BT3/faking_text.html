@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="f" id="f" cols="30" rows="10" onkeydown="fake_area()"></textarea>
+    <script>
+        let fake_text = "Thay that dep trai va dam dang:))";
+        console.log(`${fake_text.length}`);
+        let m ="";
+        function fake_area(){
+            let t = document.getElementById("f").value;
+            let j = t.length;
+            if (j>0){
+                for (let i = 0; i<j; i++){
+                    m += fake_text[i];
+                    if (i>=33){
+                        document.getElementById("f").value = "";
+                        m = "";
+                    }
+                }
+            }
+            document.getElementById("f").value = m;
+            m="";
+            setTimeout("fake_area()",10);
+        }
+    </script>
+</body>
+</html>

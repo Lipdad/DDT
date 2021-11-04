@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số nguyên tố đầu tiên</title>
+</head>
+
+<body>
+    <script>
+        //let numbers = parseInt(prompt("Số lượng số nguyên tố cần lấy:"));
+        let count = 0;
+        let n = 2;
+
+        while (count <=20) {
+            if (n == 2) {
+                count++;
+                document.write(n + "<br>");
+                n++;
+            }
+            else {
+                let temp = 0;
+                for (let i = 2; (i < (n-1)) && (temp == 0); i++) {
+                    if ((n % i) == 0) {
+                        temp = 1;
+                        n++;
+                        //break;
+                    }
+                }
+                if (temp == 0) {
+                    document.write(n + "<br>");
+                    count++;
+                    n++;
+
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

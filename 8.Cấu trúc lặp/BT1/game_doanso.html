@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game đoán số</title>
+</head>
+<body>
+    <h1>GAME ĐOÁN SỐ</h1>
+    <button onclick="game_doanso()">Start Game</button>
+    <script>
+        
+        function game_doanso(){
+            let random_value = Math.floor(Math.random()*10);
+            for (let i = 0;i<3;i++){
+                let select = prompt("Nhập vào một số ngẫu nhiên có một chữ số");
+                if (select == random_value){
+                    alert("congratulation!");
+                    break;
+                }
+            }
+            console.log(random_value);
+        }
+    </script>
+</body>
+</html>

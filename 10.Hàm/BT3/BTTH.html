@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="bai1">Bài 1</button>
+    <button id="bai2">Bài 2</button>
+    <button id="bai3">Bài 3</button>
+    <button id="bai4">Bài 4</button>
+    <button id="bai5">Bài 5</button>
+    <button id="bai6">Bài 6</button>
+    <button id="bai7">Bài 7</button>
+    <button id="bai8">Bài 8</button>
+    <button id="bai9">Bài 9</button>
+    <button id="bai10">Bài 10</button>
+    <script>
+        let lesson1 = document.getElementById("bai1");
+        let lesson2= document.getElementById("bai2");
+        let lesson3= document.getElementById("bai3");
+        let lesson4= document.getElementById("bai4");
+        let lesson5= document.getElementById("bai5");
+        let lesson6= document.getElementById("bai6");
+        let lesson7= document.getElementById("bai7");
+        let lesson8= document.getElementById("bai8");
+        let lesson9= document.getElementById("bai9");
+        let lesson10= document.getElementById("bai10");
+        lesson1.addEventListener('click', function(){
+            let number1 = parseInt(prompt("Nhập vào số đầu tiên:"));
+            let number2 = parseInt(prompt("Nhập vào số thứ hai:"));
+            if (number1>number2){
+                alert("Số đầu tiên lớn hơn số thứ 2");
+            }
+            else{
+                alert("Tổng hai số là: " + (number1+number2));
+            }
+        });
+        lesson7.addEventListener('click', function(){
+            let num1 = parseInt(prompt("Nhập vào nguyên số đầu tiên:"));
+            let num2 = parseInt(prompt("Nhập vào nguyên số thứ hai:"));
+            let num3 = parseInt(prompt("Nhập vào nguyên số thứ 3:"));
+            alert("Số nhỏ nhất là : " + find_min(num1, num2, num3));
+        });
+        function find_min(a,b,c){
+            let min = a;
+            if (min >= b){
+                min = b;
+            }
+            if (min >= c){
+                min = c;
+            }
+            return min;
+        }
+    </script>
+</body>
+</html>

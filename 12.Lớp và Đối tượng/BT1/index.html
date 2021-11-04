@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showLength()">Get Length</button>
+    <button onclick="showWidth()">Get Width</button>
+    <button onclick="showArea()">Get Area</button>
+    <button onclick="showPeri()">Get Perimeter</button>
+    <button onclick="draw()">Draw</button>
+    <br>
+    <canvas id="canvasRec"></canvas>
+    <script>
+        class Rectangle {
+            constructor(length,width){
+                this.length = length;
+                this.width = width;
+            };
+            getLength(){
+                return this.length;
+            };
+            getWidth(){
+                return this.width;
+            };
+            getArea(){
+                return this.length * this.width;
+            };
+            getPerimeter(){
+                return (this.length+this.width)*2;
+            }
+        };
+        let length = parseInt(prompt("Chiều dài hình chữ nhật: "));
+        let width = parseInt(prompt("Chiều rộng hình chữ nhật: "));
+
+        let rectangle = new Rectangle(length,width);
+        function showLength(){
+            alert("Chiều dài hình chữ nhật là: " + rectangle.getLength());
+        }
+        function showWidth(){
+            alert("Chiều rộng hình chữ nhật là: " + rectangle.getWidth());
+        }
+        function showArea(){
+            alert("Diện tích hình chữ nhật là: " + rectangle.getArea());
+        }
+        function showPeri(){
+            alert("Chu vi hình chữ nhật là: " + rectangle.getPerimeter());
+        }
+        function draw(){
+            let canvasRec = document.getElementById("canvasRec");
+            let ctx = canvasRec.getContext('2d');
+            ctx.beginPath();
+            ctx.fillStyle='#fa4b2a';
+            ctx.fillRect(30,40,rectangle.getLength()*100,rectangle.getWidth()*100);
+        }
+    </script>
+</body>
+</html>

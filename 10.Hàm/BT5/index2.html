@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN: LESSON 10 (Ứng dụng quản lý sản phẩm sử dụng hàm)</title>
+    <style>
+        table {
+            width: 400px;
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            height: 2em;
+            line-height: 2em;
+        }
+
+        table tr th:nth-child(2) {
+            color: blue;
+        }
+
+        table tr td:nth-child(3) {
+            width: 5em;
+        }
+
+        table tr td:nth-child(2) {
+            width: 15em;
+        }
+
+        table tr td:nth-child(3) button {
+            margin-left: 1em;
+        }
+
+        table tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        button {
+            background: #50af50;
+            border: none;
+            width: auto;
+            height: 1.8em;
+            border-radius: 0.3em;
+            color: white;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ứng dụng quản lý sản phẩm sử dụng hàm</h1>
+    <!-- <button onclick="displayProduct()">Display product</button> -->
+    <br> <br>
+    <br>
+    <input type="text" id="inputProduct" placeholder="Name Product">
+    <button onclick="addProduct()">Add product</button>
+    <p id="display">Display</p>
+
+    <script>
+        let inputProduct = document.getElementById('inputProduct');
+        let display = document.getElementById('display');
+        let products = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4",
+    "Apple iPhone 6S", "Xiaomi Mi 5s Plus", "Apple iPhone 8 Plus", "Fujitsu F-04E", "Oppo A71"];
+        let tableProduct = '';
+        let newproduct = '';
+        displayProduct();
+
+        function displayProduct() {            
+            tableProduct = '<table>'   
+            products.sort();              
+            makeTableTh();
+            for (let i = 0; i < products.length; i++) {
+                makeTable(i);
+            }            
+            tableProduct += '</table>'
+            display.innerHTML = tableProduct;
+        };
+
+        function makeTableTh() {
+            tableProduct += '<tr>'
+            tableProduct += '<th colspan="2"> Product Name'+'</th>'
+            tableProduct += '<th colspan="2">' + products.length +' products</th>'
+            tableProduct += '</tr>'
+        }
+        function makeTable(i) {       
+            tableProduct += '<tr>'
+            tableProduct += '<td>' + (i + 1) + '</td>' +
+                '<td>' + products[i] + '</td>' +
+                '<td>' + '<button onclick="modifiedProduct(' + i + ')">Edit</button>' + '</td>' +
+                '<td>' + '<button onclick="delProduct(' + i + ')">Delete</button>' + '</td>'
+            tableProduct += '</tr>'
+        }
+
+        function addProduct() {
+            newproduct = inputProduct.value;
+            inputProduct.value = '';
+            products.push(newproduct);
+            displayProduct();
+            alert("Add successful!")
+            doneModified = '';
+        }
+
+        function modifiedProduct(order) {
+            tableProduct = '<table>';
+            makeTableTh();
+            for (let i = 0; i < products.length; i++) {
+                if (i == order) {
+                    tableProduct += '<tr>'
+                    tableProduct += '<td>' + (i + 1) + '</td>' +
+                        '<td>' + '<input id="modified' + i + '" value= "' + products[i] + '">' + '</td>' +
+                        '<td>' + '<button onclick="doneModifiedProduct(' + i + ')">Done</button>' + '</td>' +
+                        '<td>' + '<button onclick="delProduct(' + i + ')">Delete</button>' + '</td>'
+                    tableProduct += '</tr>'
+                } else makeTable(i);
+            }
+            tableProduct += '</table>'
+            display.innerHTML = tableProduct;
+        }
+
+        function doneModifiedProduct(order) {
+            products[order] = document.getElementById('modified' + order).value;
+            displayProduct();
+        }
+
+        function delProduct(order) {
+            let answer = confirm("Are you sure?");
+            if (answer) {
+                products.splice(order, 1);
+                displayProduct();
+                alert("Delete successful!")
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LEARN: LESSON 10 (Ứng dụng quản lý sản phẩm sử dụng hàm)</title>
+</head>
+
+<body>
+    <h1>Ứng dụng quản lý sản phẩm sử dụng hàm</h1>
+    <!-- <button onclick="displayProduct()">Display product</button> -->
+    <br />
+    <br />
+    <input type="text" id="inputProduct" placeholder="Name Product" />
+    <button onclick="addProduct()">Add product</button>
+
+    <p id="display">Display</p>
+    <p id="productTotal">0 : Product</p>
+    <table width="50%">
+        <tbody id="dataTable"></tbody>
+    </table>
+
+    <script>
+        let inputProduct = document.getElementById("inputProduct");
+        //let display = document.getElementById("display");
+        let dataTable = document.querySelector("#dataTable");
+        let totalItem = 0;
+
+        function demoAdd() {
+            addRows("Sony Xperia");
+            addRows("Samsung Galaxy");
+            addRows("Nokia 6");
+        }
+        demoAdd();
+
+        function addRows(name) {
+            totalItem++;
+            id = totalItem;
+            let e = document.createElement("tr");
+            e.id = "order" + id;
+            e.innerHTML = `
+            <td>${id}</id>
+            <td id="name${id}">${name}</id>
+            <td><button onclick="modifiedProduct(${id})" id="editBtn${id}">Edit</button></td>
+            <td><button onclick="delProduct(${id})">Delete</button></td>
+          `;
+            dataTable.appendChild(e);
+            renderSTT();
+        }
+
+        function addProduct() {
+            newproduct = inputProduct.value;
+            inputProduct.value = "";
+            addRows(newproduct);
+        }
+
+        function modifiedProduct(order) {
+            let editBtn = document.getElementById("editBtn" + order);
+            let findNameId = document.getElementById("name" + order);
+            let oldName = findNameId.innerHTML.trim();
+            if (editBtn.innerText == "Edit") {
+                findNameId.innerHTML = `<input id="modified${order}" value="${oldName}"/>`;
+                editBtn.innerText = "Save";
+            } else {
+                let newName = document.getElementById("modified" + order).value;
+                findNameId.innerHTML = newName;
+                editBtn.innerText = "Edit";
+            }
+        }
+
+        function delProduct(order) {
+            let findRowsItem = document.getElementById("order" + order);
+            findRowsItem.remove();
+            renderSTT();
+        }
+
+        function renderSTT() {
+            for (let i = 1; i <= dataTable.rows.length; i++) {
+                dataTable.rows[i - 1].cells[0].innerHTML = i;
+            }
+            document.getElementById('productTotal').innerText = dataTable.rows.length + " Products";
+        }
+    </script>
+</body>
+
+</html>

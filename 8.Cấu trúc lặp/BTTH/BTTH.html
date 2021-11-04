@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="bai1()">Bài 1</button>
+    <button>Bài 2</button>
+    <button onclick="bai3()">Bài 3</button>
+    <button onclick="bai4()">Bài 4</button>
+    <button onclick="bai5()">Bài 5</button>
+    <button onclick="bai6()">Bài 6</button>
+    <button onclick="bai7()">Bài 7</button>
+    <script>
+        function bai1() {
+            for (let i = 0; i < 100; i++) {
+                if (i == 99) {
+                    alert("complate " + i);
+                }
+            }
+        }
+        function bai3() {
+            let firstNumber = 1;
+            document.write(firstNumber + "<br>")
+            let secondNumber = 1;
+            document.write(firstNumber + "<br>")
+            for (let i = 2; i < 20; i++) {
+                let nextNumber = firstNumber + secondNumber;
+                document.write(nextNumber + "<br>")
+                firstNumber = secondNumber;
+                secondNumber = nextNumber;
+            }
+        }
+        function bai4() {
+            let firstNumber = 1;
+            let secondNumber = 1;
+            for (let i = 2; i < 20; i++) {
+                let temp = parseFloat(firstNumber % 5);
+                if (temp == 0) {
+                    document.write(firstNumber + " là số  fibonacy đầu tiên chia hết cho 5!");
+                    break;
+                }
+                let nextNumber = firstNumber + secondNumber;
+                firstNumber = secondNumber;
+                secondNumber = nextNumber;
+            }
+        }
+        function bai5() {
+            let firstNumber = 1;
+            let secondNumber = 1;
+            let sum = firstNumber + secondNumber;
+            for (let i = 2; i < 20; i++) {
+                let nextNumber = firstNumber + secondNumber;
+                firstNumber = secondNumber;
+                secondNumber = nextNumber;
+                sum = firstNumber + secondNumber;
+            }
+            alert("Tổng của 20 số fibonacy đầu tiên bằng " + sum);
+        }
+        function bai6() {
+            let count = 0;
+            let sum = 0;
+            let n = 7;
+            while (count < 30) {
+                if ((n % 7) == 0) {
+                    sum += n;
+                    n++;
+                    count++;
+                }
+
+                else {
+                    n++;
+                }
+            }
+            alert("Tổng của 30 số chia hết cho 7 đầu tiên bằng " + sum);
+        }
+        function bai7() {
+            for (let i = 1; i <= 100; i++) {
+                if ((i % 3) == 0 && (i % 5) == 0) {
+                    document.write("FizzBuzz <br>");
+                }
+                else {
+                    if ((i % 3) == 0) {
+                        document.write("Fizz<br>");
+                    }
+                    else {
+                        if ((i % 5) == 0) document.write("Buzz<br>");
+                        else document.write(i + "<br>");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

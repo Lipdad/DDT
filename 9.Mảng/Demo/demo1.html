@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" name="number" id="number" required>
+    <button type="button" id="add">Add</button>
+    <button type="button" id="show">Show</button>
+    <button type="button" id="shift">Shift</button>
+    <button type="button" id="unShift">UnShift</button>
+    <br><br>
+    <span id="display"></span>
+    <script>
+        let ip_number = document.getElementById("number");
+        let btAdd = document.getElementById("add");
+        let btShow = document.getElementById("show");
+        let disPlay = document.getElementById("display");
+        let btShift = document.getElementById("shift");
+        let btunShift = document.getElementById("unShift");
+        let array_a = [4, 1, 9, 3, 0, 5, 6, 7, 8, 2];
+        let a  = array_a.join(" "); //nối các phần tử trong mảng thành chuỗi
+        console.log(a);
+        let b = array_a.reverse().join(" "); // đảo ngược các phần tử trong mảng
+        console.log(b);
+        let c = array_a.sort(function(a,b){  /* sắp xếp các phần tử trong mảng theo desc hoặc asc*/
+            return b-a;
+        });
+        console.log(c);
+        btAdd.addEventListener('click', function () {
+            array_a.push(ip_number.value);  //thêm giá trị vào vị trí cuối cùng của mảng
+        });
+        btShow.addEventListener('click', function () {
+            let result = "";
+            for (let i of array_a) {
+                result += i + "<br>";
+            }
+            disPlay.innerHTML  = result; // hiển thị ra thẻ span
+        });
+        btShift.addEventListener('click', function(){
+            array_a.shift(); // xóa phần tử đầu tiên của mảng
+        });
+        btunShift.addEventListener('click', function(){
+            array_a.unshift(ip_number.value); //thêm phần tử đầu tiên của mảng
+        });
+    </script>
+</body>
+
+</html>

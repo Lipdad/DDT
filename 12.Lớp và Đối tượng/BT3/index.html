@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="Apple.js"></script>
+    <script src="Human.js"></script>
+    <script>
+        let apple = new Apple(10);
+        let Adam = new Human("Adam", true, 60);
+        console.log(Adam);
+        let Eva = new Human("Eva", false, 40);
+        console.log(Eva);
+        let eat_no = 0;
+        while(apple.isEmpty()){
+            if (eat_no%2==0){
+                Adam.eat(apple);
+                Adam.say();
+            }
+            else{
+                Eva.eat(apple);
+                Eva.say()
+            }
+            eat_no++;
+        }
+        console.log(Adam);
+        console.log(Eva);
+    </script>
+</body>
+</html>

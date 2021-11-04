@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="ip_number">
+    <span>to</span>
+    <select name="" id="unit_to">
+        <option value="foot">Feet</option>
+        <option value="meter">Meter</option>
+    </select>
+    <button id="bt_convert">Convert</button>
+    <br>
+    <span id="result">Result</span>
+    <script>
+        let input = document.getElementById("ip_number");
+        let unit_input = document.getElementById("unit_to");
+        let convert = document.getElementById("bt_convert");
+        let result = document.getElementById("result");
+        convert.addEventListener('click', function(){
+            let value_input = parseFloat(input.value);
+            let unit = unit_input.value;
+            console.log((unit));
+            if (unit == "foot"){
+                result.innerHTML=meterToFoot(value_input) + " feet";
+            }
+            else if (unit == "meter") {
+                result.innerHTML=footToMeter(value_input) + " meter";
+            }
+        });
+
+        function footToMeter(foot){
+            return  (0.305 * foot);
+        }
+        function meterToFoot(meter){
+            return (3.279 * meter);
+        }
+    </script>
+</body>
+</html>

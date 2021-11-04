@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="login.php">
+
+        <p>
+            <input type="number" size="2" name="input1" id="input1">
+            <input type="number" size="2" name="input2" id="input2"> ketqua: <span id="equa"></span>
+        </p>
+        <button type="button" onclick="add();">Addition(+)</button>
+        <button type="button" onclick="sub();">Subtraction(-)</button>
+        <button type="button" onclick="mul();">Multiplication(x)</button>
+        <button type="button" onclick="div();">Division(/)</button>
+    </form>
+    <script>
+        function add() {
+            let val1 = parseInt(document.getElementById("input1").value);
+            let val2 = parseInt(document.getElementById("input2").value);
+            let result = val1 + val2;
+            document.getElementById("equa").innerText = result;
+        }
+
+        function sub() {
+            let val1 = parseInt(document.getElementById("input1").value);
+            let val2 = parseInt(document.getElementById("input2").value);
+            let result = val1 - val2;
+            document.getElementById("equa").innerText = result;
+        }
+
+        function mul() {
+            let val1 = parseInt(document.getElementById("input1").value);
+            let val2 = parseInt(document.getElementById("input2").value);
+            let result = val1 * val2;
+            document.getElementById("equa").innerText = result;
+        }
+
+        function div() {
+            let val1 = parseInt(document.getElementById("input1").value);
+            let val2 = parseInt(document.getElementById("input2").value);
+            let result = val1 / val2;
+            document.getElementById("equa").innerText = result;
+        }
+    </script>
+</body>
+
+</html>
