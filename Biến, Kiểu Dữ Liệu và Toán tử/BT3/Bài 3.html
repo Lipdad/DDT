@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let money = parseFloat(prompt('So tien gui tiet kiem:'));
+        let interest = parseFloat(prompt('Lai suat don dinh ky hang nam (%):'));
+        let year = parseInt(prompt('Thơi gian gưi(nam):'));
+        var moneyPay = (year * (money * (interest / 100)));
+        var m = (moneyPay + money);
+        document.write('Tong so tien lai nhan duoc sau ' + year + ' la: ' + m + ' trieu');
+    </script>
+</body>
+
+</html>

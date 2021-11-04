@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            width: 1024px;
+        }
+        
+        .wrap {
+            width: 1024px;
+            float: left;
+        }
+        
+        #header {
+            width: 1024px;
+            float: left;
+            border-bottom: 1px solid #000000;
+        }
+        
+        .main {
+            width: 1024px;
+            float: left;
+        }
+        
+        .nav {
+            width: 273px;
+            height: 410px;
+            float: left;
+        }
+        
+        .content {
+            width: 750px;
+            float: left;
+        }
+        
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="header" style="background-color: #A52A2A;">
+            <h1>Bouncing ball</h1>
+        </div>
+        <div class="main">
+            <div class="nav" style="background-color: #F0F8FF">
+                <h2>Hướng dẫn chơi</h2>
+                <script src="construc.js"></script>
+            </div>
+            <div class="content">
+                <canvas id="myCanvas" width="750" height="410"></canvas>
+
+                <script src="index.js"></script>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

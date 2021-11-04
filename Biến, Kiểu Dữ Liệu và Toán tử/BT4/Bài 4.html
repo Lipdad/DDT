@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="current">
+    <script>
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutues = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var year = currentTime.getFullYear();
+        var month = currentTime.getMonth();
+        var date = currentTime.getDate();
+        var day = currentTime.getDay();
+        switch (day) {
+            case 0:
+                thu = "Chủ nhật";
+                break;
+            case 1:
+                thu = "Thứ hai";
+                break;
+            case 2:
+                thu = "Thứ ba";
+                break;
+            case 3:
+                thu = "Thứ tư";
+                break;
+            case 4:
+                thu = "Thứ năm";
+                break;
+            case 5:
+                thu = "Thứ sáu";
+                break;
+            case 6:
+                thu = "Thứ bảy";
+                break;
+            default:
+                thu = "Không xác định";
+                break;
+        }
+        var current = 'Bay gio la ' + hours + ' gio ' + minutues + ' phut ' + seconds + ' giay, ' + thu + ' ngay ' + date + ' thang ' + month + ' nam ' + year;
+        document.getElementById('current').innerText = current;
+    </script>
+</body>
+
+</html>
