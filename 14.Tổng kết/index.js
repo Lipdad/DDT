@@ -18,7 +18,7 @@ var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var score = 0;
-var lives = 5;
+var lives = 2;
 
 var bricks = [];
 for (c = 0; c < brickColumnCount; c++) {
@@ -138,7 +138,8 @@ function draw() {
         } else {
             lives--;
             if (!lives) {
-                alert("Điểm của bạn là" + "userScore");
+                alert("Xin chúc mừng bạn đã đạt được " + score + " điểm.");
+                confirm("Bạn có muốn chơi lại?")
                 document.location.reload();
             } else {
                 x = canvas.width / 2;
