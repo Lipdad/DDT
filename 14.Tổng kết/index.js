@@ -51,7 +51,7 @@ if (rightPressed && paddleX < canvas.width - paddleWidth) {
 } else if (leftPressed && paddleX > 0) {
     paddleX -= 7;
 }
-// 
+// Va chạm với gạch
 function collisionDetection() {
     for (c = 0; c < brickColumnCount; c++) {
         for (r = 0; r < brickRowCount; r++) {
@@ -78,7 +78,7 @@ function drawBall() {
     ctx.fill();
     ctx.closePath();
 }
-// Hàm vẽ bar
+// Hàm vẽ paddle
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
